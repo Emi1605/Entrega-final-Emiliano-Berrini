@@ -1,0 +1,18 @@
+{% extends 'hola_mundo/base.html'%}
+{% block titulo %} Listado de Ventas {% endblock %}   
+{% block listado %}
+
+<form action="{% url 'ventas-create' %}" method="post"> 
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Agregar">
+</form>
+
+<ul>
+    {% for venta in ventas %}
+        <li>{{ venta }}</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

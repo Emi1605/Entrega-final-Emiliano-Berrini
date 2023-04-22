@@ -1,0 +1,26 @@
+{% extends "SecondMarket/base.html"%}
+
+{%block main %}
+
+    <ul>
+    <h1> Lista de Productos </h1>    
+   
+    {% if not object_list %}
+        <h2>NO HAY POST </h2>
+    {% endif %}    
+   
+    {% for post in object_list %}
+    <li>
+        {{post.DueñoPost}}
+            {{post}}
+            <a href="{% url 'post-detail' post.id %}">Detalle</a>
+            {% if user.is_authenticated and post.DueñoPost == user %}
+                <a href="{% url 'post-update' post.id %}">Actualizar</a>
+                <a href="{% url 'post-delete' post.id %}">Borrar</a>
+            {% endif %}    
+    </li>
+
+    {% endfor %}
+    </ul>
+
+{% endblock %}

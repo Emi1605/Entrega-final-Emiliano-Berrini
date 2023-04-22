@@ -1,0 +1,22 @@
+{% extends 'hola_mundo/base.html'%}
+{% block titulo %} Buscador de Productos {% endblock %}  
+{% block listado %}
+
+<form>
+    <p>
+        <label form="Producto_nombre">Buscador</label> 
+        <input type="text" name="Producto_nombre" maxlength="100" required="" id="Producto_nombre">
+    </p>
+    <p>
+        <input type="submit" value="buscar">
+    </p>
+
+</form>
+
+<ul>
+    {% for producto in productos %}
+        <li>{{ producto }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

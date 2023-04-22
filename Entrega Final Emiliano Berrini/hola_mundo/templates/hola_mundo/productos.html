@@ -1,0 +1,17 @@
+{% extends 'hola_mundo/base.html'%}
+{% block titulo %} Listado de Productos {% endblock %}  
+{% block listado %}
+
+<form action="{% url 'productos-create' %}" method="post"> 
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Agregar">
+</form>
+
+<ul>
+    {% for producto in productos %}
+        <li>{{ producto }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

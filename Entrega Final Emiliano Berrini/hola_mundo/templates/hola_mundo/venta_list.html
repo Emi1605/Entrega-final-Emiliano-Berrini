@@ -1,0 +1,22 @@
+{% extends 'hola_mundo/base.html'%}
+{% block titulo %} Buscador de Ventas {% endblock %}  
+{% block listado %}
+
+<form>
+    <p>
+        <label form="venta_id">Buscador</label> 
+        <input type="text" name="Venta_id" maxlength="100" required="" id="Venta_id">
+    </p>
+    <p>
+        <input type="submit" value="buscar">
+    </p>
+
+</form>
+
+<ul>
+    {% for venta in ventas %}
+        <li>{{ venta }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

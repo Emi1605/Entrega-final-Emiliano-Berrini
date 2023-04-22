@@ -1,0 +1,15 @@
+{% extends "SecondMarket/base.html"%}
+
+{%block main %}
+
+<P>
+
+    <h1> {{object.Nombre_Producto}} </h1>
+    <br>
+    <img src="{{ object.imagen.url }}" width="320px" height="100%">
+    {{object}}
+    <br>
+    <a href="{% url 'post-list' %}"> Volver</a>
+</P>
+
+{% endblock %}

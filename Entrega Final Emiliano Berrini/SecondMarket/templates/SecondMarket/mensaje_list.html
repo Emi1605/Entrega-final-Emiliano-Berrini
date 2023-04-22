@@ -1,0 +1,24 @@
+{% extends "SecondMarket/base.html"%}
+
+{%block main %}
+
+    <ul>
+    <h1> Lista de Mensajes </h1>    
+   
+    {% if not object_list %}
+        <h2>NO HAY MENSAJES </h2>
+    {% endif %}    
+   
+    {% for mensaje in object_list %}
+    <li>
+            {{mensaje.mail}}
+            {{mensaje.mensaje}}
+            {% if user.is_authenticated and mensaje.destinatario == user %}
+                <a href="{% url 'mensaje-delete' mensaje.id %}">Borrar</a>
+            {% endif %}    
+    </li>
+
+    {% endfor %}
+    </ul>
+
+{% endblock %}

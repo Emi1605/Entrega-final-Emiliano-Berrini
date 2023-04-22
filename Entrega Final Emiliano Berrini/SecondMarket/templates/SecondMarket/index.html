@@ -1,0 +1,103 @@
+{% extends "SecondMarket/base.html"%}
+
+{%block main %}
+<main>
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        
+        {% for post in posts %}
+        {% if forloop.first %}
+          <div class="carousel-item active">
+        {% else %}  
+          <div class="carousel-item">
+        {% endif %}    
+              <img src="{{ post.imagen.url }}">      
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h1></h1>
+                <p></p>
+                <p><a class="btn btn-lg btn-primary" href="{% url 'post-detail' post.id %}">Ver Mas</a></p>
+              </div>
+            </div>
+          </div>        
+        {% endfor %}  
+        
+
+
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+
+      {% for post in posts %}
+      <div class="col-lg-4">
+        <img src="{{ post.imagen.url }}" height="144" width="144">
+        <h2> {{post.Nombre_Producto}}</h2>
+        <h3 {{post.DueñoPost}}> </h3>
+        <p></p>
+        <p><a class="btn btn-secondary" href="{% url 'post-detail' post.id %}">Detalles »</a></p>
+      </div><!-- /.col-lg-4 -->
+      {% endfor %}
+    
+
+    <!-- START THE FEATURETTES -->
+
+    
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Postea tus Productos</h2>
+        <p class="lead"> Lo que ya no queres, alguien lo necesita </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        
+          
+        
+
+      </div>
+    </div>
+
+    
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">SecondMarket</h2>
+        <p class="lead">Lo que queres, al mejor precio</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        
+          
+        
+
+      </div>
+    </div>
+
+    
+    
+
+   
+    <!-- /END THE FEATURETTES -->INDEX.
+
+  </div><!-- /.container -->
+
+</main>
+{% endblock %}
